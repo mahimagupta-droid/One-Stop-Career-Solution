@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Career Counseling Form</title>
+  <link rel="stylesheet" href="form.css">
+  <link rel="icon" type="image/png" href="images.png">
+</head>
+
+<body>
+
+  <div class="form-container">
+    <h1>Career Counseling Questionnaire</h1>
+    <h2>One-Stop Personalized Career & Education Advisor</h2>
+
+    <ul class="progressbar">
+      <li class="active">Basic Details</li>
+      <li>Stream Reflection</li>
+      <li>Academic Strengths</li>
+      <li>Interests & Skills</li>
+      <li>Motivation & Career</li>
+      <li>Career Awareness</li>
+      <li>Family & Environment</li>
+      <li>Final Reflection</li>
+    </ul>
+
+    <form id="multiStepForm" action="http://localhost:3000/submit" method="POST">
+      <input type="hidden" name="formType" value="School Student Form">
+      <!-- Step 1 -->
+      <div class="form-step step-1 active">
+        <label for="fullName">1. What’s your full name?</label>
+        <input type="text" id="fullName" name="fullName" required />
+
+        <label for="age">2. How old are you?</label>
+        <input type="number" id="age" name="age" min="15" max="45" required />
+
+        <label for="contact">3. What’s your email / contact number?</label>
+        <input type="text" id="contact" name="contact" placeholder="Email or Phone" required />
+
+        <label for="course">4. Which class are you in right now? (11th / 12th)</label>
+        <input type="text" id="course" name="course" required />
+
+        <label for="year">5. Which stream & subjects have you chosen? (PCM / PCB / Commerce with/without Maths /
+          Humanities / Arts / Vocational)
+        </label>
+        <input type="text" id="year" name="year" required />
+
+        <div class="btns">
+          <button type="button" id="prevBtn">Previous</button>
+          <button type="button" id="nextBtn">Next</button>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="form-step step-2">
+        <label>6. Why did you choose these subjects after 10th?</label>
+        <div class="options-group">
+          <input type="checkbox" id="reason1" name="reason" value="Personal interest" />
+          <label for="reason1">Personal interest</label>
+          <input type="checkbox" id="reason2" name="reason" value="Career goals" />
+          <label for="reason2">Career goals</label>
+          <input type="checkbox" id="reason3" name="reason" value="Parents Suggestion" />
+          <label for="reason3">Parents Suggestion</label>
+          <input type="checkbox" id="reason4" name="reason" value="peer/friend's choice" />
+          <label for="reason4">peer/friend's choice</label>
+          <input type="checkbox" id="reason5" name="reason" value="to keep options open" />
+          <label for="reason5">to keep options open</label>
+        </div>
+
+        <label for="challenge_school">7. Did you notice a big jump in academics from 10th to 11th? How did it
+          feel?</label>
+        <select id="challenge_school" name="challenge_school">
+          <option value="">Select</option>
+          <option value="tough">Yes, it was tough</option>
+          <option value="managed">Yes, but I managed</option>
+          <option value="not_really">Not really</option>
+        </select>
+
+
+        <label for="satisfaction">8. Do you still want to continue in this stream or would you prefer to change if given
+          a chance? Why?</label>
+        <textarea id="continue" name="continue"></textarea>
+
+
+        <label for="no_influence">9. If your friends/parents weren’t influencing you, would you still choose the same
+          stream?</label>
+
+        <select id="no_influence" name="no_influence">
+          <option value="">Select</option>
+          <option value="yes">yes</option>
+          <option value="no">no</option>
+        </select>
+
+
+        <div class="btns">
+          <button type="button" id="prevBtn">Previous</button>
+          <button type="button" id="nextBtn">Next</button>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="form-step step-3">
+        <label for="enjoySubject">10. Which subject do you enjoy the most? Why?</label>
+        <textarea id="enjoySubject" name="enjoySubject"></textarea>
+
+        <label for="weak_subject">11. Which subject feels like a burden? Why?</label>
+        <input type="text" id="weak_subject" name="weak_subject">
+
+
+        <label for="grades">12. How are your current marks/grades in your chosen subjects?</label>
+        <input type="text" id="grades" name="grades">
+
+
+        <label for="extra_classes">13. Do you take coaching, online courses, or extra classes for any subject? If yes,
+          which ones?</label>
+        <input type="text" id="extra_classes" name="extra_classes">
+
+
+        <label for="workload">14. Do you feel your workload (school + coaching + self-study) is manageable?</label>
+        <select id="workload" name="workload">
+          <option value="">Select</option>
+          <option value="manageable">Manageable</option>
+          <option value="not_easy">Not Easy</option>
+        </select>
+
+
+        <div class="btns">
+          <button type="button" id="prevBtn">Previous</button>
+          <button type="button" id="nextBtn">Next</button>
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="form-step step-4">
+        <label for="activities">15. What activities do you enjoy outside academics? (eg. Sports, Music, Coding, Writing,
+          Art, Public Speaking, etc.)</label>
+        <textarea id="activities" name="activities"></textarea>
+
+        <label>16. Rate yourself (1–5):</label>
+        <div class="options">
+          <label class="rating-label">Creativity</label>
+          <select name="rating_creativity">
+            <option value="">-</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+          <label class="rating-label">Logical reasoning</label>
+          <select name="rating_logical">
+            <option value="">-</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+          <label class="rating-label">Analytical thinking</label>
+          <select name="rating_analytical">
+            <option value="">-</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+          <label class="rating-label">Communication skills</label>
+          <select name="rating_communication">
+            <option value="">-</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+          <label class="rating-label">Leadership</label>
+          <select name="rating_leadership">
+            <option value="">-</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+          <label class="rating-label">Empathy</label>
+          <select name="rating_empathy">
+            <option value="">-</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+        </div>
+
+
+        <label>19. Do you enjoy:</label>
+        <div class="options">
+          <label class="multi-label"><input type="checkbox" name="enjoy[]" value="technical">Solving
+            technical/analytical problems</label>
+          <label class="multi-label"><input type="checkbox" name="enjoy[]" value="helping">Helping people/social
+            service</label>
+          <label class="multi-label"><input type="checkbox" name="enjoy[]" value="leading">Leading
+            teams/projects</label>
+          <label class="multi-label"><input type="checkbox" name="enjoy[]" value="creating">Building/creating new
+            things</label>
+          <label class="multi-label"><input type="checkbox" name="enjoy[]" value="researching">Researching/analyzing
+            data</label>
+        </div>
+
+
+        <div class="btns">
+          <button type="button" id="prevBtn">Previous</button>
+          <button type="button" id="nextBtn">Next</button>
+        </div>
+      </div>
+
+      <!-- Step 5 -->
+      <div class="form-step step-5">
+
+        <label for="motivation">18. What motivates you the most in a career?</label>
+        <div class="options">
+          <label><input type="radio" name="motivation" value="salary">Good salary & stability</label>
+          <label><input type="radio" name="motivation" value="passion">Personal passion & interest</label>
+          <label><input type="radio" name="motivation" value="prestige">Prestige / recognition</label>
+          <label><input type="radio" name="motivation" value="worklife">Work-life balance</label>
+          <label><input type="radio" name="motivation" value="social">Social impact / contribution</label>
+        </div>
+
+
+        <label for="pref_work">19. Do you prefer:</label>
+        <div class="options">
+          <label><input type="radio" name="pref_work" value="stability">Stability & routine</label>
+          <label><input type="radio" name="pref_work" value="challenge">Challenges & dynamic work</label>
+        </div>
+
+
+        <label for="personality">20. Would you describe yourself as an introvert, ambivert, or extrovert?</label>
+        <input type="text" id="personality" name="personality">
+
+
+        <label for="decision_making">21. How do you usually make decisions?</label>
+        <div class="options">
+          <label><input type="radio" name="decision_making" value="logical">Analyzing logically</label>
+          <label><input type="radio" name="decision_making" value="instinct">Instinct/gut feeling</label>
+          <label><input type="radio" name="decision_making" value="advice">Seeking advice</label>
+        </div>
+
+
+        <div class="btns">
+          <button type="button" id="prevBtn">Previous</button>
+          <button type="button" id="nextBtn">Next</button>
+        </div>
+      </div>
+
+      <!-- Step 6 -->
+      <div class="form-step step-6">
+
+        <label for="clarity">22. How clear are you about career options available in your field?</label>
+        <div class="options">
+          <label><input type="radio" name="clarity" value="very_clear">Very clear</label>
+          <label><input type="radio" name="clarity" value="somewhat_clear">Somewhat clear</label>
+          <label><input type="radio" name="clarity" value="not_clear">Not clear at all</label>
+        </div>
+
+
+        <label for="career_interest">23. Which career(s) currently interest you the most?</label>
+        <input type="text" id="career_interest" name="career_interest">
+
+
+        <label for="exams">24. Do you plan to prepare for any competitive exams? (GATE, UPSC, CAT, etc.)</label>
+        <input type="text" id="exams" name="exams">
+
+        <label for="further_study">25. Do you plan to study further (PG, diploma, skills)?</label>
+        <input type="text" id="further_study" name="further_study">
+
+        <label for="ten_years">26. Where do you see yourself in 10 years?</label>
+        <input type="text" id="ten_years" name="ten_years">
+
+
+        <div class="btns">
+          <button type="button" id="prevBtn">Previous</button>
+          <button type="button" id="nextBtn">Next</button>
+        </div>
+      </div>
+
+      <!-- Step - 7 -->
+      <div class="form-step step-7">
+
+        <label for="parent_education">27. What is your parents' educational background?</label>
+        <input type="text" id="parent_education" name="parent_education">
+
+
+        <label for="career_family_pref">28. Do your parents/relatives have a preferred career path for you?</label>
+        <input type="text" id="career_family_pref" name="career_family_pref">
+
+        <label for="peer_pressure">29. Are you pursuing course because of family expectations or peer pressure?</label>
+        <input type="text" id="peer_pressure" name="peer_pressure">
+
+        <label for="finances_limit">30. Are finances a limiting factor for your higher studies/career plans?</label>
+        <input type="text" id="finances_limit" name="finances_limit">
+
+        <label for="mentors">31. Do you have relatives/mentors in professional fields?</label>
+        <input type="text" id="mentors" name="mentors">
+
+        <div class="btns">
+          <button type="button" id="prevBtn">Previous</button>
+          <button type="button" id="nextBtn">Next</button>
+        </div>
+      </div>
+
+      <!-- Step - 8 -->
+      <div class="form-step step-8">
+
+        <label for="re_choose"><!-- Step - 8 -->
+          <div class="form-step step-8">
+
+            <label for="re_choose">32. If you could re-choose your career/job today, would you stick to the same or
+              switch?
+              Why? </label>
+            <input type="text" id="re_choose" name="re_choose">
+
+
+
+            <label for="confusion">33. What’s your biggest confusion or worry about your career right now? </label>
+            <input type="text" id="confusion" name="confusion">
+
+
+            <label for="support">35. What kind of support or guidance would you like from this career counseling
+              platform?</label>
+            <input type="text" id="support" name="support">
+
+
+
+            <div class="btns">
+              <button type="button" id="prevBtn">Previous</button>
+              <button type="button" id="nextBtn">Next</button>
+            </div>
+          </div>
+        </label>
+        <input type="text" id="re_choose" name="re_choose">
+
+
+        <div class="btns">
+          <button type="button" id="prevBtn">Previous</button>
+          <button type="button" id="nextBtn">Next</button>
+        </div>
+      </div>
+
+
+    </form>
+  </div>
+
+  <script>
+    const steps = document.querySelectorAll(".form-step");
+    const progressSteps = document.querySelectorAll(".progressbar li");
+    const form = document.getElementById("multiStepForm");
+    let currentStep = 0;
+
+    function showStep(step) {
+      steps.forEach((s, i) => {
+        s.classList.toggle("active", i === step);
+      });
+      progressSteps.forEach((p, i) => {
+        p.classList.toggle("active", i <= step);
+      });
+    }
+
+    document.querySelectorAll("#nextBtn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        if (currentStep < steps.length - 1) {
+          currentStep++;
+          showStep(currentStep);
+        } else {
+          form.submit();
+        }
+      });
+    });
+
+    document.querySelectorAll("#prevBtn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        if (currentStep > 0) {
+          currentStep--;
+          showStep(currentStep);
+        }
+      });
+    });
+
+    showStep(currentStep);
+  </script>
+</body>
+
+</html>

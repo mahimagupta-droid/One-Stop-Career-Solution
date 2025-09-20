@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One-Stop Personalized Career & Education Advisor - Government of Jammu and Kashmir</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/png" href="images.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #70d86e 0%, #ef89e5 50%, #06b6d4 100%);
+            min-height: 100vh;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .hero-bg {
+            background: url('https://images.travelandleisureasia.com/wp-content/uploads/sites/2/2022/12/12103708/jammu-and-kashmir-1.jpg') center/cover no-repeat;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .interactive-card:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s;
+        }
+
+        .progress-bar {
+            width: 0%;
+            transition: width 2s;
+        }
+
+        .full-progress {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body class="text-white">
+    <!-- Navigation -->
+    <nav class="w-full bg-green-900 bg-opacity-10 p-4 fixed top-0 z-10 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">Career Advisor</h1>
+            <ul class="hidden md:flex space-x-6">
+                <li><a href="#home" class="hover:text-yellow-400 transition">Home</a></li>
+                <li><a href="#features" class="hover:text-yellow-400 transition">Features</a></li>
+                <li><a href="#advisor" class="hover:text-yellow-400 transition">Get Advice</a></li>
+                <li><a href="#about" class="hover:text-yellow-400 transition">About</a></li>
+                <li><a href="#contact" class="hover:text-yellow-400 transition">Contact</a></li>
+            </ul>
+            <button class="md:hidden text-white" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden mt-4 bg-blue-800 p-4 rounded">
+            <a href="#home" class="block py-2 hover:text-yellow-400">Home</a>
+            <a href="#features" class="block py-2 hover:text-yellow-400">Features</a>
+            <a href="#advisor" class="block py-2 hover:text-yellow-400">Get Advice</a>
+            <a href="#about" class="block py-2 hover:text-yellow-400">About</a>
+            <a href="#contact" class="block py-2 hover:text-yellow-400">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg">
+        <div class="hero-overlay"></div>
+        <div class="text-center text-white z-10 relative max-w-4xl mx-auto px-4 animate-fade-in">
+            <h2 class="text-5xl md:text-7xl font-bold mb-6">Empower Your Future</h2>
+            <p class="text-xl md:text-2xl mb-8">Government of Jammu & Kashmir's One-Stop Personalized Career & Education
+                Advisor</p>
+            <button
+                class="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold py-3 px-8 rounded-full text-lg transition"
+                onclick="scrollToSection('advisor')">Start Your Journey</button>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 px-4">
+        <div class="container mx-auto text-center">
+            <h3 class="text-4xl font-bold mb-12">Smart Education Features</h3>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white bg-opacity-10 p-6 rounded-lg interactive-card shadow-lg">
+                    <i class="fas fa-brain text-6xl mb-4 text-yellow-400"></i>
+                    <h4 class="text-2xl font-semibold mb-4">AI-Powered Personalization</h4>
+                    <p>Get tailored career advice based on your skills, interests, and local opportunities in Jammu &
+                        Kashmir.</p>
+                    <div class="mt-4 bg-blue-500 h-2 rounded">
+                        <div class="progress-bar h-full bg-yellow-400 rounded" id="feature1-progress"></div>
+                    </div>
+                </div>
+                <div class="bg-white bg-opacity-10 p-6 rounded-lg interactive-card shadow-lg">
+                    <i class="fas fa-graduation-cap text-6xl mb-4 text-yellow-400"></i>
+                    <h4 class="text-2xl font-semibold mb-4">Educational Pathways</h4>
+                    <p>Discover scholarships, online courses, and educational resources specific to our region.</p>
+                    <div class="mt-4 bg-blue-500 h-2 rounded">
+                        <div class="progress-bar h-full bg-yellow-400 rounded" id="feature2-progress"></div>
+                    </div>
+                </div>
+                <div class="bg-white bg-opacity-10 p-6 rounded-lg interactive-card shadow-lg">
+                    <i class="fas fa-briefcase text-6xl mb-4 text-yellow-400"></i>
+                    <h4 class="text-2xl font-semibold mb-4">Job Matching</h4>
+                    <p>Find internships and job opportunities that align with your profile and regional needs.</p>
+                    <div class="mt-4 bg-blue-500 h-2 rounded">
+                        <div class="progress-bar h-full bg-yellow-400 rounded" id="feature3-progress"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advisor Section -->
+    <section id="advisor" class="py-20 px-4 bg-white bg-opacity-5">
+        <div class="container mx-auto">
+            <h3 class="text-4xl font-bold text-center mb-12">Get Personalized Advice</h3>
+            <div class="anchor-links">
+                <div class="text-center space-x-4">
+                    <h5 class="mb-6 text-2xl font-semibold">Choose Your Category to Get Started</h5>
+                    <a href="school-students.html"
+                        class="inline-block bg-yellow-500 hover:bg-yellow-600 text-black font-semibold py-3 px-6 rounded-full transition">
+                        School Student Form
+                    </a>
+                    <a href="college-students.html"
+                        class="inline-block bg-yellow-500 hover:bg-yellow-600 text-black font-semibold py-3 px-6 rounded-full transition">
+                        College Student Form
+                    </a>
+                    <a href="working-professionals.html"
+                        class="inline-block bg-yellow-500 hover:bg-yellow-600 text-black font-semibold py-3 px-6 rounded-full transition">
+                        Employee Form
+                    </a>
+                </div>
+
+
+            </div>
+            <div id="advice-result" class="mt-8 p-6 bg-white bg-opacity-20 rounded-lg hidden">
+                <h4 class="text-2xl font-bold mb-4 text-center">Your Personalized Recommendation</h4>
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/34afb59e-88af-46f6-b998-9563f762d655.png"
+                    alt="Illustrated arrow pointing towards career progress with milestones like education and job opportunities in a scenic Jammu and Kashmir background with mountains and lakes"
+                    class="w-full rounded-lg mb-4" />
+                <p id="recommendation" class="text-lg"></p>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-4">
+        <div class="container mx-auto text-center">
+            <h3 class="text-4xl font-bold mb-12">About the Initiative</h3>
+            <div class="max-w-4xl mx-auto bg-white bg-opacity-10 p-8 rounded-lg shadow-lg">
+                <img src="https://aniportalimages.s3.amazonaws.com/media/details/Jammu_and_Kashmir_qgoTNFO.jpg"
+                    alt="Official government seal of Jammu and Kashmir with intricate design featuring lotus flowers, mountains, and regional emblems in blue and gold colors"
+                    class="w-full rounded-lg mb-6" />
+                <p class="text-lg leading-relaxed">This initiative by the Government of Jammu and Kashmir aims to bridge
+                    the gap in education and career opportunities through technology. Our Smart Education platform
+                    leverages AI to provide personalized guidance, ensuring every individual in our region can unlock
+                    their potential and contribute to the development of Jammu & Kashmir. Project ID: SIH25094.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-4 bg-white bg-opacity-5">
+        <div class="container mx-auto text-center">
+            <h3 class="text-4xl font-bold mb-12">Contact Us</h3>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <img src="https://media.istockphoto.com/photos/contact-us-picture-id505628970?k=6&m=505628970&s=612x612&w=0&h=3gpgEkRzETeL-AJvh1SPZgHTGsmvyfZgrrG1J9RowBo="
+                        alt="Friendly support team members in professional attire working in a modern office with computers and Jammu and Kashmir flags in the background"
+                        class="w-full rounded-lg" />
+                </div>
+                <div class="text-left">
+                    <form class="space-y-4" onsubmit="alert('Message sent!'); return false;">
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Name</label>
+                            <input type="text" required class="w-full p-3 rounded bg-white bg-opacity-20 text-black"
+                                placeholder="Your name">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Email</label>
+                            <input type="email" required class="w-full p-3 rounded bg-white bg-opacity-20 text-black"
+                                placeholder="Your email">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Message</label>
+                            <textarea rows="4" required class="w-full p-3 rounded bg-white bg-opacity-20 text-black"
+                                placeholder="Your message"></textarea>
+                        </div>
+                        <button type="submit"
+                            class="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-semibold py-3 rounded-lg transition">Send
+                            Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center py-8 bg-green-900 bg-opacity-10">
+        <p>© 2025 Government of Jammu & Kashmir. Smart India Hackathon Project - Empowering Futures.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Toggle mobile menu
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Smooth scroll to section
+        function scrollToSection(id) {
+            const element = document.getElementById(id);
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Animate progress bars on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const progressBar = entry.target.querySelector('.progress-bar');
+                    progressBar.classList.add('full-progress');
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.interactive-card').forEach(card => observer.observe(card));
+
+        // Handle advisor form submission
+        document.getElementById('advisor-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const age = parseInt(document.getElementById('age').value);
+            const interest = document.getElementById('interests').value;
+            const education = document.getElementById('education').value;
+
+            // Mock recommendation logic
+            let recommendation = `Hello ${name}! Based on your profile: `;
+            if (interest === 'technology' && education.includes('bachelors')) {
+                recommendation += "Pursue advanced tech roles in emerging fields like AI in Kashmir's startup ecosystem.";
+            } else if (interest === 'tourism') {
+                recommendation += "Consider roles in eco-tourism and cultural management, leveraging our region's rich heritage.";
+            } else if (age < 25) {
+                recommendation += "Focus on foundational skills and certifications to build a strong future in " + interest + ".";
+            } else {
+                recommendation += "Explore leadership positions or entrepreneurship in " + interest + " aligned with JK's development goals.";
+            }
+
+            document.getElementById('recommendation').textContent = recommendation;
+            document.getElementById('advice-result').classList.remove('hidden');
+            document.getElementById('advice-result').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        // Fade in elements on load
+        document.addEventListener('DOMContentLoaded', () => {
+            const elements = document.querySelectorAll('.animate-fade-in');
+            elements.forEach(el => el.classList.add('animate-fade-in'));
+        });
+    </script>
+</body>
+
+</html>
+</content>
+</create_file>

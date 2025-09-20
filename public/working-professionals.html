@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Career Counseling Form</title>
+  <link rel="icon" type="image/png" href="images.png">
+  <link rel="stylesheet" href="form.css">
+</head>
+
+<body>
+
+  <div class="form-container">
+    <h1>Career Counseling Questionnaire</h1>
+    <h2>One-Stop Personalized Career & Education Advisor</h2>
+
+    <ul class="progressbar">
+      <li class="active">Basic Details</li>
+      <li>Job & Career Background </li>
+      <li>Work Strengths & Challenges </li>
+      <li>Interests & Skills</li>
+      <li>Creativity </li>
+      <li>Career Growth & Aspirations </li>
+      <li>Workplace Environment & Support</li>
+      <li>Final Reflection</li>
+    </ul>
+
+    <form id="multiStepForm" action="http://localhost:3000/submit" method="POST">
+      <input type="hidden" name="formType" value="Employee Form">
+      <!-- Step 1 -->
+      <div class="form-step step-1 active">
+        <label for="fullName">1. What’s your full name?</label>
+        <input type="text" id="fullName" name="fullName" required />
+
+        <label for="age">2. How old are you?</label>
+        <input type="number" id="age" name="age" min="15" max="45" required />
+
+        <label for="contact">3. What’s your email / contact number?</label>
+        <input type="text" id="contact" name="contact" placeholder="Email or Phone" required />
+
+        <label for="course">4. Your's Current Job Title & Department?</label>
+        <input type="text" id="course" name="course" required />
+
+        <label for="year">5. total Work Experience (in years): ?</label>
+        <input type="text" id="year" name="year" required />
+
+
+
+        <div class="btns">
+          <button type="button" id="prevBtn">Previous</button>
+          <button type="button" id="nextBtn">Next</button>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="form-step step-2">
+        <label>1. What motivated you to choose your current job/role? </label>
+        <div class="options-group">
+          <input type="checkbox" id="reason1" name="reason" value="Personal interest" />
+          <label for="reason1">Personal interest</label>
+          <input type="checkbox" id="reason2" name="reason" value="Career growth opportunities " />
+          <label for="reason2">Career growth opportunities </label>
+          <input type="checkbox" id="reason3" name="reason" value="Salary/financial need" />
+          <label for="reason3">Salary/financial need</label>
+          <input type="checkbox" id="reason4" name="reason" value="Family suggestion " />
+          <label for="reason4">Family suggestion</label>
+          <input type="checkbox" id="reason5" name="reason" value="Other (please specify) " />
+          <label for="reason5">Other (please specify) </label>
+          <textarea id="reason5" name="reason5"></textarea>
+        </div>
+
+        <label for="challenge">2. How did you feel transitioning from student life/previous job to your current role?
+        </label>
+        <select id="challenge" name="challenge">
+          <option value="">Select</option>
+          <option value="tough">Very challenging </option>
+          <option value="managed">Somewhat manageable</option>
+          <option value="not_really">Easy transition</option>
+        </select>
+
+
+        <label for="satisfaction">3. Are you satisfied with your current role, or would you like to switch
+          roles/companies?
+          Why? </label>
+        <textarea id="satisfaction" name="satisfaction"></textarea>
+
+
+        <label for="no_influence">4. If external factors (family/peers/financial needs) weren’t influencing, would you
+          still choose
+          this career path? </label>
+        <textarea id="no_influence" name="no_influence"></textarea>
+
+        <div class="btns">
+          <button type="button" id="prevBtn">Previous</button>
+          <button type="button" id="nextBtn">Next</button>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="form-step step-3">
+        <label for="enjoy">5. Which part of your job do you genuinely enjoy the most? Why? </label>
+        <textarea id="enjoy" name="enjoy"></textarea>
+
+
+        <label for="weak">6. Which part feels like a burden or least interesting? Why? </label>
+        <input type="text" id="weak" name="weak">
+
+
+        <label for="rate">7. How would you rate your workload (tasks, deadlines, meetings, extra duties)? </label>
+        <select id="rate" name="rate">
+          <option value="">Select</option>
+          <option value="tough">Very manageable </option>
+          <option value="managed">Manageable but stressful sometimes</option>
+          <option value="not_really">Difficult to manage</option>
+        </select>
+
+
+        <label for="extra">8. Do you take additional training, courses, or certifications to improve your skills? If
+          yes,
+          which ones? </label>
+        <input type="text" id="extra" name="extra">
+
+        <div class="btns">
+          <button type="button" id="prevBtn">Previous</button>
+          <button type="button" id="nextBtn">Next</button>
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="form-step step-4">
+        <label for="activities">9. Outside work, which activities do you enjoy? (Sports, Music, Reading, Writing,
+          Volunteering, Designing, Public Speaking, etc.) </label>
+        <textarea id="activities" name="activities"></textarea>
+
+        <label>10. Rate yourself (1–5):</label>
+        <div class="options">
+          <label class="rating-label">Problem solving / Logical reasoning </label>
+          <select name="rating_solving">
+            <option value="">-</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+          <label class="rating-label">Teamwork & Collaboration </label>
+          <select name="rating_Teamwork">
+            <option value="">-</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+          <label class="rating-label">Analytical thinking</label>
+          <select name="rating_analytical">
+            <option value="">-</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+          <label class="rating-label">Communication skills</label>
+          <select name="rating_communication">
+            <option value="">-</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+          <label class="rating-label">Leadership</label>
+          <select name="rating_leadership">
+            <option value="">-</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+          <label class="rating-label">Empathy / Helping nature</label>
+          <select name="rating_empathy">
+            <option value="">-</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+        </div>
+        <div class="btns">
+          <button type="button" id="prevBtn">Previous</button>
+          <button type="button" id="nextBtn">Next</button>
+        </div>
+      </div>
+
+      <!-- Step 5 -->
+      <div class="form-step step-5">
+
+        <label>11. Which of these do you enjoy more at work?</label>
+        <div class="options">
+          <label class="multi-label"><input type="checkbox" name="enjoy[]" value="technical">Solving
+            technical/analytical problems</label>
+          <label class="multi-label"><input type="checkbox" name="enjoy[]" value="helping">Helping
+            colleagues/customers</label>
+          <label class="multi-label"><input type="checkbox" name="enjoy[]" value="leading">Leading
+            teams/projects</label>
+          <label class="multi-label"><input type="checkbox" name="enjoy[]" value="creating">Building/creating new
+            things</label>
+          <label class="multi-label"><input type="checkbox" name="enjoy[]" value="researching">Researching/analyzing
+            data</label>
+          <label class="multi-label"><input type="checkbox" name="enjoy[]" value="researching">Motivation & Personality
+          </label>
+        </div>
+
+        <label for="motivation">12. What motivates you the most in your career? </label>
+        <div class="options">
+          <label><input type="radio" name="motivation" value="salary">Good salary & stability</label>
+          <label><input type="radio" name="motivation" value="passion">Personal passion & interest</label>
+          <label><input type="radio" name="motivation" value="prestige">Prestige / recognition</label>
+          <label><input type="radio" name="motivation" value="worklife">Work-life balance</label>
+          <label><input type="radio" name="motivation" value="social">Social impact / contribution</label>
+        </div>
+
+
+        <label for="pref_work">13. Do you prefer:</label>
+        <div class="options">
+          <label><input type="radio" name="pref_work" value="stability">Stability & routine</label>
+          <label><input type="radio" name="pref_work" value="challenge">Challenges & dynamic work</label>
+        </div>
+
+
+        <label for="personality">14. Would you describe yourself as an introvert, ambivert, or extrovert?</label>
+        <input type="text" id="personality" name="personality">
+
+
+        <label for="decision_making">15. How do you usually make workplace decisions? </label>
+        <div class="options">
+          <label><input type="radio" name="decision_making" value="logical">Analyzing logically</label>
+          <label><input type="radio" name="decision_making" value="instinct">Instinct/gut feeling</label>
+          <label><input type="radio" name="decision_making" value="advice">Seeking advice</label>
+        </div>
+
+
+        <div class="btns">
+          <button type="button" id="prevBtn">Previous</button>
+          <button type="button" id="nextBtn">Next</button>
+        </div>
+      </div>
+
+      <!-- Step 6 -->
+      <div class="form-step step-6">
+
+        <label for="clarity">16. How clear are you about the career growth opportunities in your field/company?
+        </label>
+        <div class="options">
+          <label><input type="radio" name="clarity" value="very_clear">Very clear</label>
+          <label><input type="radio" name="clarity" value="somewhat_clear">Somewhat clear</label>
+          <label><input type="radio" name="clarity" value="not_clear">Not clear at all</label>
+        </div>
+
+
+        <label for="career_interest">17. Which career path currently interests you the most? (Managerial, Technical
+          Expert,
+          Entrepreneurship, Freelancing, Creative fields, etc.)</label>
+        <input type="text" id="career_interest" name="career_interest">
+
+
+        <label for="exams">18. Do you plan to prepare for higher studies, certifications, or competitive exams? If yes,
+          which ones?</label>
+        <input type="text" id="exams" name="exams">
+
+        <label for="further_study">19. Where do you see yourself in 5–10 years? (Leadership role, Own business, Senior
+          expert, Career switch, etc.) </label>
+        <input type="text" id="further_study" name="further_study">
+
+        <div class="btns">
+          <button type="button" id="prevBtn">Previous</button>
+          <button type="button" id="nextBtn">Next</button>
+        </div>
+      </div>
+
+      <!-- Step - 7 -->
+      <div class="form-step step-7">
+
+        <label for="environment">20. How would you describe your company’s work environment? </label>
+        <div class="options">
+          <label><input type="radio" name="environment" value="supportive">Supportive & motivating </label>
+          <label><input type="radio" name="environment" value="neutral">Neutral </label>
+          <label><input type="radio" name="environment" value="stressful">Stressful & unsupportive </label>
+        </div>
+
+
+        <label for="career_family_influ">21. Does your family influence your career/work decisions? </label>
+        <input type="text" id="career_family_influ" name="career_family_influ">
+
+        <label for="career_growth">22. Are finances a limiting factor in your career growth (like further
+          studies/training)?</label>
+        <input type="text" id="career_growth" name="career_growth">
+
+        <label for="finances_limit">31. Are finances a limiting factor for your higher studies/career plans?</label>
+        <input type="text" id="finances_limit" name="finances_limit">
+
+        <label for="mentors">23. Do you have mentors or guides (inside or outside workplace) who support your career
+          journey? </label>
+        <input type="text" id="mentors" name="mentors">
+
+        <div class="btns">
+          <button type="button" id="prevBtn">Previous</button>
+          <button type="button" id="nextBtn">Next</button>
+        </div>
+      </div>
+
+      <!-- Step - 8 -->
+      <div class="form-step step-">
+
+        <label for="re_choose">24. If you could re-choose your career/job today, would you stick to the same or switch?
+          Why? </label>
+        <input type="text" id="re_choose" name="re_choose">
+
+
+
+        <label for="confusion">25. What’s your biggest confusion or worry about your career right now? </label>
+        <input type="text" id="confusion" name="confusion">
+
+        <label for="career_growth">22. Are finances a limiting factor in your career growth (like further
+          studies/training)?</label>
+        <input type="text" id="career_growth" name="career_growth">
+
+        <label for="support">26. What kind of support or guidance would you like from this platform/company?</label>
+        <input type="text" id="support" name="support">
+
+
+
+        <div class="btns">
+          <button type="button" id="prevBtn">Previous</button>
+          <button type="button" id="nextBtn">Next</button>
+        </div>
+      </div>
+
+
+    </form>
+  </div>
+
+  <script>
+    const steps = document.querySelectorAll(".form-step");
+    const progressSteps = document.querySelectorAll(".progressbar li");
+    const form = document.getElementById("multiStepForm");
+    let currentStep = 0;
+
+    function showStep(step) {
+      steps.forEach((s, i) => {
+        s.classList.toggle("active", i === step);
+      });
+      progressSteps.forEach((p, i) => {
+        p.classList.toggle("active", i <= step);
+      });
+    }
+
+    document.querySelectorAll("#nextBtn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        if (currentStep < steps.length - 1) {
+          currentStep++;
+          showStep(currentStep);
+        } else {
+          form.submit();
+        }
+      });
+    });
+
+    document.querySelectorAll("#prevBtn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        if (currentStep > 0) {
+          currentStep--;
+          showStep(currentStep);
+        }
+      });
+    });
+
+    showStep(currentStep);
+  </script>
+</body>
+
+</html>

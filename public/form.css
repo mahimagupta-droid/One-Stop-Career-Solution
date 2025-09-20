@@ -1,0 +1,337 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #9a549f, #75c06b);
+  color: #fff;
+  min-height: 100vh;
+  padding: 0; 
+}
+
+.form-container {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 12px; 
+  max-width: 700px; /* decreased width */
+  width: 90%; /* responsive width */
+  height: auto; /* allow height to adjust */
+  margin: 40px auto; /* center horizontally with margin */
+  box-shadow: none; 
+  overflow: auto; 
+  padding: 40px 50px 60px 50px; 
+  box-sizing: border-box; 
+  color: #000;
+}
+
+/* Background images for steps */
+.form-step {
+  padding: 40px 50px 60px 50px;
+  min-height: 480px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  box-shadow: inset 0 0 0 1000px rgba(147, 82, 139, 0.85);
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+}
+.form-step.active {
+  display: flex;
+  
+}
+.form-group {
+    margin-bottom: 22px;
+  
+  }
+
+.step-1 {
+   background-color: #5d0f58dc; 
+  background: #a916b4;
+}
+.step-2 {
+    background-color: #5d0f58dc; 
+  background: #a916b4;
+}
+.step-3 {
+   background-color: #5d0f58dc; 
+  background: #a916b4;
+}
+.step-4 {
+    background-color: #5d0f58dc; 
+  background: #a916b4; 
+}
+.step-5 {
+   background-color: #5d0f58dc; 
+  background: #a916b4;
+}
+.step-6 {
+    background-color: #5d0f58dc; 
+  background: #a916b4;
+}
+.step-7 {
+    background-color: #5d0f58dc; 
+  background: #a916b4;
+}
+.step-8 {
+   background-color: #5d0f58dc; 
+  background: #a916b4;
+}
+
+/* Headings */
+h1 {
+  text-align: center;
+  font-weight: 700;
+  font-size: 4.4rem;
+  margin-bottom: 10px;
+  color: #93bfe3;
+  text-shadow: 0 0 8px #4a90e2;
+}
+h2 {
+  text-align: center;
+  font-weight: 500;
+  font-size: 2.4rem;
+  margin-bottom: 30px;
+  color: #d0e6f7;
+}
+/* Labels and inputs */
+label {
+  font-weight: 500;
+  margin-bottom: 20px;
+  display: block;
+  color: #cbd5e1;
+}
+input[type="text"],
+input[type="email"],
+input[type="number"],
+select,
+textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 12px;
+  border: none;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  font-family: 'Poppins', sans-serif;
+  background: rgba(222, 214, 214, 0.1);
+  color: #0f0e0e;
+  box-shadow: inset 0 0 8px rgba(224, 218, 218, 0.15);
+  transition: background 0.3s ease;
+}
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+select:focus,
+textarea:focus {
+  background: rgba(255,255,255,0.2);
+  outline: indigo;
+}
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* Radio and checkbox groups */
+.options-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 20px;  
+}
+
+/* Improved spacing and visibility for radio and checkbox labels */
+.options label,
+.options-group label {
+  display: block; /* full width */
+  margin-bottom: 15px; /* vertical spacing */
+  padding: 12px 20px; /* bigger clickable area */
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #e0e7ff; /* light blue text */
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+}
+
+.options-group input[type="radio"],
+.options-group input[type="checkbox"],
+.options input[type="radio"],
+.options input[type="checkbox"] {
+  display: none;
+}
+
+.options input[type="radio"]:checked + label,
+.options input[type="checkbox"]:checked + label,
+.options-group input[type="radio"]:checked + label,
+.options-group input[type="checkbox"]:checked + label {
+  background-color: #4a90e2; /* bright blue */
+  color: #fff;
+  box-shadow: 0 0 12px #4a90e2;
+}
+
+.options label:hover,
+.options-group label:hover {
+  background-color: rgba(74, 144, 226, 0.3);
+  color: #fff;
+  box-shadow: 0 0 10px #4a90e2;
+}
+
+/* Progress bar */
+.progressbar {
+  display: flex;
+  justify-content: space-between;
+  counter-reset: step;
+  margin: 50px 0 50px 0;
+  position: relative;
+  z-index: 1;
+}
+
+.progressbar li {
+  list-style-type: none;
+  width: 12.5%; /* 8 steps, so 100/8 = 12.5% */
+  position: relative;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #679ac5;
+  font-weight: 600;
+  z-index: 2;
+}
+
+/* Circular step number */
+.progressbar li::before {
+  content: counter(step);
+  counter-increment: step;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  border: 2px solid #a3cef1;
+  display: block;
+  text-align: center;
+  margin: 0 auto 10px auto;
+  border-radius: 50%;
+  background: transparent;
+  color: #679ac5;
+  transition: all 0.3s ease;
+  z-index: 2;
+  position: relative;
+}
+
+/* Connecting line */
+.progressbar li::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 4px; /* thicker line for better visibility */
+  background: linear-gradient(90deg, #4a90e2, #75c06b); /* blue to green gradient */
+  top: 15px;
+  left: -50%;
+  z-index: 1;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Remove line before first step */
+.progressbar li:first-child::after {
+  content: none;
+}
+
+/* Active step styling */
+.progressbar li.active {
+  color: #4a90e2;
+}
+.progressbar li.active::before {
+  background: #4a90e2;
+  color: white;
+  border-color: #4a90e2;
+  box-shadow: 0 0 10px #4a90e2;
+}
+
+/* Connecting line after active step */
+.progressbar li.active + li::after {
+  background: linear-gradient(90deg, #4a90e2, #75c06b);
+}
+
+/* Inactive connecting lines dimmed */
+.progressbar li:not(.active)::after {
+  background: #a3cef1;
+  opacity: 0.4;
+}
+
+/* Buttons */
+.btns {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+button {
+  background: #562f58;
+  border: none;
+  padding: 14px 30px;
+  border-radius: 30px;
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(221, 145, 233, 0.6);
+  transition: background 0.3s ease;
+}
+button:hover:not(:disabled) {
+  background: #357ABD;
+}
+button:disabled {
+  background: #7a9cc6;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+/* Responsive */
+@media (max-width: 600px) {
+  .form-container {
+    padding: 30px 25px;
+    max-height: 100vh;
+  }
+  .progressbar {
+    margin: 20px 20px 0 20px;
+  }
+  .progressbar li {
+    font-size: 0.75rem;
+  }
+  button {
+    padding: 12px 20px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Mobile Devices (up to 600px) */
+@media (max-width: 600px) {
+  .form-container {
+    padding: 18px 5px;
+    border-radius: 12px;
+    max-width: 99vw;
+    min-height: unset;
+  }
+  .form-step {
+    padding: 22px 6px 34px 6px;
+    min-height: unset;
+  }
+  h1 {
+    font-size: 1.4rem;
+  }
+  h2 {
+    font-size: 1rem;
+    margin-bottom: 14px;
+  }
+  .progressbar {
+    margin: 16px 2vw 0 2vw;
+    font-size: 0.66rem;
+  }
+  .progressbar li {
+    font-size: 0.62rem;
+  }
+  button, .btns button {
+    width: 100%;
+    margin-top: 10px;
+    font-size: 0.92rem;
+    padding: 10px 0;
+  }
+  label, input, textarea, select {
+    font-size: 1rem !important;
+  }
+}
